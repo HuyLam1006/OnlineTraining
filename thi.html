@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <title>Online Training</title>
+</head>
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <nav class="w-100 navbar navbar-expand-sm navbar-dark bg-info "> 
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item ">
+                      <a  class="nav-link text-dark font-weight-bold " href="#">FPT Fpoly<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-dark font-weight-bold" href="#">Home</a>
+                    </li>
+                    
+                  <li class="nav-item">
+                    <a class="nav-link text-dark font-weight-bold" href="#">Post Manager</a>
+                  </li>
+                  </ul>
+            </div>
+        </nav>
+            <div class="row">
+                <article class="col-9 bg-light p-0" ng-view ="">
+                    <table class="table table-striped" name="banhang">
+                        <tr class="text-center" style="color:white;">
+                            Post Manager
+                        </tr>
+                        <div class="">
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>Title</th>
+                            <th>
+                                UpdateAt
+                            </th>
+    
+                        </tr>
+                        <tr ng-repeat="sp in sanpham">
+                            <td>
+                                {{}}
+                            </td>
+                            <td>
+                                {{sp.tiltle}}
+                            </td>
+                            <td>
+                                {{sp.update|date:'dd/MM/yyyy'}}
+                            </td>
+                        </tr>
+
+                        </div>
+                        </table>
+                </article>
+                <aside class="bg-success col-3 p-0">
+                    <div>
+                        <div class=" shadow-lg rounded">
+                            <h2 class="text-dark text-center">New Post</h2>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="ghichu">Text</label>
+                                    <input type="text" ng-model="post.tiltle" class="form-control" placeholder="Tiêu đề">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="ghichu">Nội dung</label>
+                                    <textarea type="text" class="form-control"placeholder="Nội dung..." rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn btn-info" ng-click="add()">
+                                    Send
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+    </div>
+
+
+
+
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+<script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function($scope, $http){
+           $scope.sanpham =[];
+           $http.get("list.js").then(
+                function(r){$scope.sanpham = r.data;},
+                function(d){alert('Loi : ' + d.statusText);}
+           );    
+           
+           $scope.post={};
+            
+        $scope.add =function(){
+        $scope.post.update = new Date();
+        $scope.sanpham.push(angular.copy($scope.post));
+        
+    }
+
+        })
+
+</script>
+</html>

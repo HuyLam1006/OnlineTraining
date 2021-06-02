@@ -1,0 +1,83 @@
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-cntent-center align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Online Training</span></h2>
+          <p class="animate__animated animate__fadeInUp">Online Training là một hệ thống và nền tảng tương tác trực tuyến cho phép người dùng học, thực hành và đánh giá kỹ năng lập trình của mình thông qua các bài tập thực hành, các cuộc thi viết mã với chức năng tự động chấm điểm để người dùng có thể cải thiện kỹ năng và tăng năng suất.</p>
+          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Tầm Nhìn</h2>
+          <p class="animate__animated animate__fadeInUp">Dù bạn là ai, Online Training sẽ luôn giúp bạn khám phá giới hạn của chính mình. Chúng tôi hứa hẹn sẽ mang đến một kênh chia sẻ kiến ​​thức khoa học máy tính cho các nhà phát triển không chỉ ở Việt Nam mà còn ở Đông Nam Á và toàn Châu Á.</p>
+          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Nhiệm Vụ</h2>
+          <p class="animate__animated animate__fadeInUp">Chúng tôi tập trung vào việc phát triển một hệ sinh thái toàn diện với các khóa học từ cơ bản đến nâng cao và thực hành các thử thách phù hợp với tất cả mọi người. Với các khóa học và thử thách phong phú, đa dạng hỗ trợ nhiều ngôn ngữ lập trình khác nhau, Online Learning giúp người dùng học và thực hành lập trình một cách dễ dàng và hiệu quả.</p>
+          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="bx bx-chevron-left" aria-hidden="true"><i class="fas fa-chevron-circle-left fa-4x"></i></span>
+        <span class="sr-only"><i class="fas fa-chevron-circle-left"></i>Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="bx bx-chevron-right" aria-hidden="true"><i class="fas fa-chevron-circle-right fa-4x"></i></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+<div class="container d-flex">
+<article class=" col-lg-9 col-md-8 col-12">
+    <div class="row">
+        <div ng-repeat="sub in cacmonhoc | orderBy:'Name' | limitTo: pageSize:start" class="col-sm-6 text-center mt-5">
+          <a class="card ctn-card" href="#!view/tracnghiem/{{sub.Id}}/{{sub.Name}}">
+            <div class="card-body">
+                <img src="images/logos/{{sub.Id}}.jpg" class="card-img-top w-50 mt-2" alt="">
+            </div>
+            <div class="card-footer badge-warning text-uppercase font-weight-bold text-white">
+                {{sub.Name}}
+            </div>
+          </a>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+      <button ng-click="first()" class="btn btn-danger text-white">
+        <i class="fas fa-backward fa-2x"></i></button>
+      <button ng-click="truoc()" class="btn btn-success text-white ml-3">
+        <i class="fas fa-caret-left fa-2x"></i></button>
+      <button ng-click="tiep()" class="btn btn-success text-white ml-3">
+        <i class="fas fa-caret-right fa-2x"></i></button>
+      <button ng-click="last()" class="btn btn-danger text-white ml-3">
+        <i class="fas fa-forward fa-2x"></i></button>
+        <!-- <button class="prevtab btn btn-danger" ng-click="first()">Trang Đầu</button>
+        <button class="prevtab btn btn-danger" ng-click="truoc()"> Trang Trước</button>
+        <button class="nexttab btn btn-info" ng-click="tiep()">Trang Tiếp</button>
+        <button class="nexttab btn btn-info" ng-click="last()">Trang Cuối</button> -->
+    </div>
+  </article>
+  <aside class="col-sm-3 mt-5">
+      <div class="card mt-1 ml-n2 mr-n2">
+          <div class="card-header badge-danger text-uppercase font-weight-bold"><i class="fas fa-th-list"></i> Danh Mục</div>
+          <div class="card-body p-0">
+              <ul class="list-group" ng-repeat="sub in cacmonhoc|orderBy:'Name'|limitTo:4:start">
+                <a class="list-group-item" href="#!view/tracnghiem/{{sub.Id}}/{{sub.Name}}">{{sub.Name|uppercase}}</a>
+              </ul>
+            </div>
+       </div>
+    </aside>
+</div>

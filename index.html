@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <title>Online Training</title>
+</head>
+
+<body ng-app="myapp" ng-controller="mypage">
+<div >
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-transparent header-scrolled">
+    <div class="container">
+
+      <div class="logo float-left">
+        <h1 class="text-light"><a href="index.html"><span>Training</span></a></h1>        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu float-right d-none d-lg-block font-weight-bold">
+        <ul>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Trang chủ<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!view/about"><i class="fas fa-info"></i> Giới thiệu</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!view/contact"><i class="fa fa-phone"></i> Liên Hệ</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!view/feedback"><i class="fas fa-comment-alt"></i> Góp ý</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!view/faq"><i class="fas fa-question"></i> Hỏi đáp</a>
+        </li>
+          <li class="dropmenua nav-item dropdown float-right">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i> Chào {{fullname}}
+          </a>
+          <div class="dropdown-menu dropmenu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" ng-if="!isSign" href="#!view/login">Đăng nhập</a>
+            <a class="dropdown-item" ng-if="!isSign" href="#!view/register">Đăng ký</a>
+            <a class="dropdown-item" ng-if="!isSign" href="#!view/forgotpass">Quên mật khẩu</a>
+            <hr />
+            <a class="dropdown-item" ng-if="isSign" ng-click="Xoa()" href="#">Đăng xuất</a>
+            <a class="dropdown-item" ng-if="isSign" href="#!view/changepass">Đổi mật khẩu</a>
+            <a class="dropdown-item" ng-if="isSign" href="#!view/edit">Cập nhật tài khoảng</a>
+          </div>
+        </li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <main>
+    <ng-view></ng-view>
+    <div class="container">
+    </div>
+  </main>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500" class="mt-3">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Liên Kết</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Trang chủ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Giới thiệu</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Liên hệ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Góp ý</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Hỏi đáp</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Môn Học</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Kiểm thử</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">SQL Sever</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Lập trình C#</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Lập trình ASP.NET</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Quản lý dự án với Agile</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Liên Hệ</h4>
+            <p>
+              Công viên phần mềm Quang Trung <br>
+              Quận 12, Thành phố Hồ Chí Minh<br>
+              Vietnam <br><br>
+              <strong>Phone:</strong> +12 345 6789<br>
+              <strong>Email:</strong> huylam@example.com<br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Về Chúng Tôi</h3>
+            <p>Online Training là một hệ thống và nền tảng tương tác trực tuyến cho phép người dùng học, thực hành và đánh giá kỹ năng lập trình của mình.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></i></a>
+              <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        Họ tên: {{fullname}} - Email: {{email}} <br>
+        &copy; Copyright <strong><span>HuyLam</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+</div>
+
+
+
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<script src="js/students.js"></script>
+
+<script>
+    var app = angular.module("myapp",["ngRoute"]);
+        app.config(function($routeProvider){
+          $routeProvider
+          .when("/view/about",{
+            templateUrl:"gioithieu.html"
+          })
+          .when("/view/contact",{
+            templateUrl:"lienhe.html"
+          })
+          .when("/view/feedback",{
+            templateUrl:"gopy.html"
+          })
+          .when("/view/faq",{
+            templateUrl:"hoidap.html"
+          })
+          .when("/view/login",{
+            templateUrl:"dangnhap.html",
+            controller:"myUser"
+          })
+          .when("/view/register",{
+            templateUrl:"dangky.html",
+            controller:"myUser"
+          })
+          .when("/view/forgotpass",{
+            templateUrl:"quenmatkhau.html",
+            controller:"myUser"
+          })
+          .when("/view/changepass",{
+            templateUrl:"doimatkhau.html",
+            controller:"myUser"
+          })
+          .when("/view/edit",{
+            templateUrl:"suataikhoang.html",
+            controller:"myUser"
+          })
+          .when("/view/tracnghiem/:idMH/:tenMH",{
+            templateUrl:"quiz.html",
+            controller:"myExam"
+          })
+          .otherwise({templateUrl:"index2.html", controller:"myExam"})
+        })
+  
+  app.controller("myExam",function($scope, $http, $interval, $routeParams, $timeout){
+      $scope.cacmonhoc=[];
+      $http.get("db/Subjects.js").then(function (d){$scope.cacmonhoc = d.data});
+      $scope.idMH = $routeParams.idMH;
+      $scope.tenMH = $routeParams.tenMH;
+      $scope.questions=[];
+      $http.get("db/Quizs/" + $scope.idMH + ".js").then(
+        function(q){$scope.questions = q.data},
+        function(q){}
+      )
+      $scope.start = 0;
+      var quizMarks = 0;
+      var answer = {};
+      $scope.tiep = function(){
+          $scope.start += 1;
+          if($scope.start == $scope.questions.length){$scope.start = 0}
+          if($scope.answer.choice == $scope.questions[chiso].AnswerId){
+            $scope.quizMarks += $scope.questions[chiso].Marks;
+          }
+      }
+      $scope.truoc = function(){
+          $scope.start -= 1;
+      }
+      $scope.first = function(){
+          $scope.start = 0;
+      }
+      $scope.last= function(){
+          $scope.start = ($scope.questions.length) - 1;
+      }
+      $scope.time = new Date()
+      $interval(function(){
+        $scope.time = new Date();
+      }, 1000);
+
+      //monhoc
+        $scope.pageSize = 4;
+        $scope.start = 0;
+        $scope.tiep = function(){
+            if($scope.start < $scope.cacmonhoc.length - $scope.pageSize)
+            $scope.start += $scope.pageSize;
+        }
+        $scope.truoc = function(){
+            if($scope.start > 0)
+            $scope.start -= $scope.pageSize;
+        }
+        $scope.first = function(){
+            $scope.start = 0;
+        }
+        $scope.last = function(){
+            sotrang = Math.ceil($scope.cacmonhoc.length / $scope.pageSize);
+            $scope.start = (sotrang - 1) * $scope.pageSize;
+        }
+
+        //dongho
+        $scope.min = '--';
+        $scope.sec = '--';
+        $scope.countDown = 300;
+        $scope.timeOut = -1;
+        //$scope.timeOut = 0;
+        var startQuiz = $interval(function() {
+            var min = parseInt($scope.countDown / 60, 10)
+            var sec = parseInt($scope.countDown % 60, 10);
+            $scope.min = min < 10 ? "0" + min : min;
+            $scope.sec = sec < 10 ? "0" + sec : sec;
+            console.log($scope.countDown--);
+            $scope.timeOut++;
+            // if($scope.countDown == 60){
+            //   alert("Hết thời gian làm bài")
+            //   $scope.submit($scope.start);
+            // }
+        }, 1000, $scope.countDown);
+
+        // Dừng interval mỗi khi load trang
+        $scope.$on('$destroy', function(){
+          if (angular.isDefined(startQuiz)) {
+              $interval.cancel(startQuiz);
+              startQuiz = undefined;
+            }
+        })   
+  });      
+  app.controller("mypage",function($scope){
+    
+    if(sessionStorage.getItem("username")!=null) 
+    {
+      $scope.isSign =true;
+      
+    } else
+    $scope.isSign = false;
+    
+    $scope.username = sessionStorage.getItem("username");
+    $scope.fullname = sessionStorage.getItem("fullname");
+    $scope.email = sessionStorage.getItem("email");
+    $scope.gender = sessionStorage.getItem("gender");
+    $scope.birthday = sessionStorage.getItem("birthday");
+    $scope.schoolfee = sessionStorage.getItem("schoolfee");
+    $scope.marks = sessionStorage.getItem("marks");
+    $scope.Xoa = function(){
+      $scope.isSign = false;
+      sessionStorage.clear();
+      
+    }
+  })
+  app.controller("myUser",function($scope){
+    $scope.students = listStudents;
+    $scope.student = {};
+    $scope.index = -1;
+
+    $scope.signUp = function(){
+        try {
+          listStudents.push(angular.copy($scope.student));
+          console.log(listStudents);  
+        }catch (e){console.log(e.message);}
+        finally{Swal.fire({
+            icon: 'success',
+            title: 'Thêm sinh viên thành công',
+            showConfirmButton: false,
+            timer: 150000
+          })}
+        document.location="index.html#!view/login";
+    }
+    $scope.login = function(){
+        var user = $scope.user;
+        var pass = $scope.pass;
+        var flag = false;
+        var motsv;
+        for(var i=0; i<listStudents.length; i++){
+          motsv = listStudents[i];
+          if(user==motsv.username && pass==motsv.password)
+          {
+          flag = true;
+          sessionStorage.setItem("username", motsv.username);
+          sessionStorage.setItem("fullname", motsv.fullname);
+          sessionStorage.setItem("gender", motsv.gender);
+          sessionStorage.setItem("birthday", motsv.birthday);
+          sessionStorage.setItem("schoolfee", motsv.schoolfee);
+          sessionStorage.setItem("marks", motsv.marks);
+          sessionStorage.setItem("email", motsv.email);
+          Swal.fire({
+            icon: 'success',
+            title: 'Đăng nhập thành công',
+            showConfirmButton: false,
+            timer: 150000
+          })
+          document.location="index.html";
+          break;
+          }
+          else Swal.fire({
+            icon: 'error',
+            title: 'Đăng nhập thất bại',
+            showConfirmButton: true,
+            timer: 15000
+          })
+        }
+    }
+
+    // $scope.changepass = function(){
+    //     var eml = $scope.eml;
+    //     var pw = $scope.pw;
+    //     var npw = $scope.npw;
+    //     var crpw = $scope.Student.password;
+
+    //   for (var i=0; i<listStudents.length; i++){
+    //     if (eml ==listStudents[i].email && pw ==listStudents[i].password) {
+    //       if (npw == crpw) {
+    //         $scope.student[$scope.index] = angular.copy($scope.Student);
+    //         Swal.fire({
+    //           icon: 'success',
+    //           title: "Đổi mật khẩu thành công:<br>" + $scope.Student.password,
+    //           showConfirmButton: false,
+    //           timer: 15000
+    //         })
+    //       } else {
+    //         Swal.fire({
+    //           icon: 'error',
+    //           title: "Mật khẩu mới không trùng nhau.",
+    //           showConfirmButton: true,
+    //           timer: 15000
+    //         })
+    //       }
+    //       break;
+    //     } else {
+    //       Swal.fire({
+    //           icon: 'error',
+    //           title: "Email hoặc mật khẩu cũ không đúng.",
+    //           showConfirmButton: true,
+    //           timer: 15000
+    //         })
+    //       break;
+    //     }
+    //   }
+    // }
+    $scope.changepass = function(){
+            var email = $scope.email;
+            var newpass = $scope.pass;
+            var sv; 
+            var flag = false;
+            for(var i=0; i<listStudents.length;i++){
+                sv = listStudents[i];
+                if(email == sv.email){
+                    sv.password = newpass;
+                    flag = true;
+                    console.log(listStudents);  
+                    break;
+                }
+            }
+            if(flag){
+              Swal.fire({
+              icon: 'success',
+              title: "Đổi mật khẩu thành công",
+              showConfirmButton: false,
+              timer: 15000
+            })
+            }else(Swal.fire({
+              icon: 'error',
+              title: "Đổi mật khẩu thất bại",
+              showConfirmButton: true,
+              timer: 15000
+            }))
+    }
+    $scope.forgotpass = function(){
+            var user = $scope.user;
+            var flag = false;
+            var sv;
+            var oldPass
+            for(var i=0; i<listStudents.length;i++){
+                sv = listStudents[i];
+                if(user==sv.username)
+                {
+                    flag = true;
+                    oldPass = sv.password
+                    break;
+                }
+            }
+            if(flag){
+            Swal.fire({
+              icon: 'info',
+              title: "Mật khẩu của bạn là: " + oldPass,
+              showConfirmButton: true,
+              timer: 15000
+            })
+            }else Swal.fire({
+              icon: 'error',
+              title: "Không tìm thấy mật khẩu, sai tên tài khoản",
+              showConfirmButton: true,
+              timer: 15000
+            })
+    }
+    $scope.editInfo = function(){
+            var email = sessionStorage.getItem("email");
+            var motsv; 
+            var flag = false;
+            for(var i=0; i<listStudents.length;i++){
+                  motsv= listStudents[i];
+                  if(email == motsv.email){
+                  motsv.fullname = angular.copy($scope.fullname);
+                  motsv.gender = angular.copy($scope.gender);
+                  motsv.schoolfee = angular.copy($scope.schoolfee);
+                  motsv.marks = angular.copy($scope.marks);
+                  flag = true;
+                  sessionStorage.setItem("username", motsv.username);
+                  sessionStorage.setItem("fullname", motsv.fullname);
+                  sessionStorage.setItem("gender", motsv.gender);
+                  sessionStorage.setItem("birthday", motsv.birthday);
+                  sessionStorage.setItem("schoolfee", motsv.schoolfee);
+                  sessionStorage.setItem("marks", motsv.marks);
+                  console.log(listStudents);  
+                  break;
+                }
+            }
+            if(flag){
+              Swal.fire({
+            icon: 'success',
+            title: 'Cập nhật thành công',
+            showConfirmButton: false,
+            timer: 150000
+          })
+            }else Swal.fire({
+            icon: 'error',
+            title: 'Cập nhật thất bại',
+            showConfirmButton: true,
+            timer: 15000
+          })
+    }
+
+  });
+
+
+</script>
+</html>

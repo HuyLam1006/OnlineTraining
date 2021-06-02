@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+    <link href="css/updateaccount.css" rel="stylesheet">
+    <title>Online Training</title>
+</head>
+
+<body>
+
+
+<div class="container ctn-edit">
+  
+  <div class="row">
+    <div class="col-12 col-md-7 col-lg-8 mx-auto">
+      <div class="card card-signin shadow-lg mt-n4">
+        <div class="card-body">
+          <h5 class="card-title text-center text-uppercase font-weight-bold">Cập nhật tài khoảng</h5>
+          <form class="form-signin">
+            <div class="row">
+              <div class="col-6">
+                  <label for="exampleFormControlInput1" class="form-label fw-bold">Tên tài khoản</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" ng-model="username" disabled>
+              </div>
+              <div class="col-6">
+                  <label for="exampleFormControlInput2" class="form-label fw-bold">Họ và tên</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput2" ng-model="fullname">
+              </div>
+          </div>
+
+            <div class="form-label-group mt-3">
+              <label for="inputEmail">Địa chỉ Email</label>
+              <input ng-model="email" type="email" id="inputEmail" class="form-control" required autofocus disabled>
+            </div>
+
+            <div class="form-label-group mt-3">
+              <label for="inputdate">Ngày sinh</label>
+              <input ng-model="birthday" type="text" id="inputdate" class="form-control" required autofocus>
+            </div>
+
+            <div class="form-label-group mt-3">
+                <label for="pc" class="form-label fw-bold">Giới tính</label>{{tl.TenKD=="" ? "Chưa có" : tl.TenKD}}
+                <input type="text" class="form-control" id="pc" ng-model="gender">
+              <!-- <label for="inputsex" class="pr-5">Giới tính: </label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label mr-3" for="inlineRadio1">Nam</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Nữ</label>
+              </div> -->
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-6">
+                  <label for="thuong" class="form-label fw-bold">Học Phí</label>
+                  <input type="text" class="form-control" id="thuong" ng-model="schoolfee" >
+              </div>
+              <div class="col-6">
+                  <label for="clb" class="form-label fw-bold">Điểm</label>
+                  <input type="text" class="form-control" id="clb" ng-model="marks">
+              </div>
+          </div>
+
+            <button ng-click="editInfo()" class="btn btn-lg btn-danger btn-block font-weight-bold mt-4" type="submit">Cập nhật</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

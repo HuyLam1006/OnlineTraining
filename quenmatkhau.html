@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+    <link href="css/forgotpassword.css" rel="stylesheet">
+    <title>Online Training</title>
+</head>
+<body class="bgcl">
+    <div class="container ctn-forgot">
+        <div class="zone zone-content mt-n5">
+            <div class="row row-ctn">
+                <div class="col-md-8 well border-none bg bg-success text-white box1 bglc shadow-lg">
+                    <div class="mg">
+                        <h3>Quên mật khẩu?</h3>
+                        <p>Làm theo các bước đơn giản sau để đặt lại tài khoản của bạn:</p>
+                        <ol>
+                            <li>Nhập username hoặc email của bạn.</li>
+                            <li>Truy cập tài khoản email của bạn, mở email được gửi bởi Online Learning.</li>
+                            <li>Làm theo hướng dẫn trong thư để thay đổi mật khẩu.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="row usname row-ctn">
+                <form class="col-md-8 form-forgot-password border-none bg bg-success text-white box2 bglc shadow-lg">
+                    <div class="form-group">
+                    <label for="username">Nhập tên tài khoảng</label>
+                    <input ng-model="user" type="text" maxlength="128" class="form-control" id="username" name="username" placeholder="Username" />
+                    </div>
+                    <button ng-click="forgotpass()" type="submit" class="btn btn-warning btn-submit font-weight-bold">Quên mật khẩu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

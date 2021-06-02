@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+    <link href="css/register.css" rel="stylesheet">
+    <title>Online Training</title>
+</head>
+<body class="bglc">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row shadow-lg card-signup">
+            <div class="card-img-left d-none d-md-flex">
+               <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center font-weight-bold text-uppercase">Đăng ký</h5>
+              <form class="form-signin">
+                <div class="form-label-group">
+                  <input ng-model="student.fullname" type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                  <label for="inputUserame">Tên của bạn</label>
+                </div>
+  
+                <div class="form-label-group">
+                  <input type="text" id="tk" class="form-control" ng-model="student.username" placeholder="Tên tài khoản" required autofocus>
+                  <label for="tk">Tên tài khoản</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input ng-model="student.email" type="text" id="inputEmail" class="form-control" placeholder="Email address" required>
+                  <label for="inputEmail">Địa chỉ Email</label>
+                </div>
+                
+                <hr>
+  
+                <div class="form-label-group">
+                  <input ng-model="student.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword">Mật khẩu</label>
+                </div>
+                
+                <div class="form-label-group">
+                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputConfirmPassword">Xác nhận mật khẩu</label>
+                </div>
+  
+                <button ng-click="signUp()" class="btn btn-lg btn-info btn-block text-uppercase" type="submit">Đăng ký</button>
+                <small><p class="mall mt-3">Bạn đã có tài khoảng?</p></small>
+                <a class="d-block text-center small mt-n3 text-decoration-none" href="dangnhap.html">Đăng nhập</a>
+                <hr class="my-4">
+                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Đăng nhập với Google</button>
+                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Đăng nhập với Facebook</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
